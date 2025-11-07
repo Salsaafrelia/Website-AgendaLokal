@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian - Agenda Lokal</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Kustomisasi Tailwind -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F4F6F7; /* Latar Belakang Off-White */
+            color: #2C3E50; /* Teks Utama Dark Charcoal */
+        }
+        .bg-primary { background-color: #1ABC9C; }
+        .text-primary { color: #1ABC9C; }
+        .border-primary { border-color: #1ABC9C; }
+        .accent-primary { accent-color: #1ABC9C; }
+        .hover\:bg-primary-dark:hover { background-color: #16a085; }
+        .text-secondary { color: #7F8C8D; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===== HEADER / NAVIGASI ===== -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="agendalokal.html#home" class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="font-bold text-xl">Agenda Lokal</span>
+            </a>
+            <!-- Menu Navigasi (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="agendalokal.html#home" class="text-secondary hover:text-primary font-medium transition duration-300">Home</a>
+                <a href="agendalokal.html#kategori" class="text-secondary hover:text-primary font-medium transition duration-300">Jelajahi</a>
+                <a href="agendalokal.html#fitur" class="text-secondary hover:text-primary font-medium transition duration-300">Fitur</a>
+                <a href="agendalokal.html#bagikan" class="text-secondary hover:text-primary font-medium transition duration-300">Untuk Penyelenggara</a>
+            </nav>
+            <!-- Tombol Aksi -->
+            <a href="#" class="hidden md:block bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-dark transition duration-300 shadow-lg shadow-primary/30">
+                Masuk / Daftar
+            </a>
+            <!-- Menu Hamburger (Mobile) -->
+            <button class="md:hidden">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        
+        <!-- ===== TOMBOL KEMBALI (BARU DITAMBAHKAN) ===== -->
+        <a href="agendalokal.html" class="inline-flex items-center text-secondary hover:text-primary transition duration-300 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span class="ml-2 font-medium">Kembali</span>
+        </a>
+        <!-- ============================================== -->
+
+        <div class="flex flex-col md:flex-row gap-8">
+
+            <!-- ===== KOLOM FILTER (KIRI) ===== -->
+            <aside class="w-full md:w-1/4">
+                <div class="bg-white p-6 rounded-2xl shadow-sm">
+                    <h3 class="font-bold text-lg mb-4">Filter Pencarian</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Filter Kata Kunci -->
+                        <div>
+                            <label for="kegiatan" class="block text-sm font-medium mb-1">Nama Kegiatan</label>
+                            <input type="text" id="kegiatan" placeholder="Contoh: Festival Kuliner" class="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                        </div>
+                        
+                        <!-- Filter Lokasi -->
+                        <div>
+                            <label for="lokasi" class="block text-sm font-medium mb-1">Lokasi</label>
+                            <input type="text" id="lokasi" placeholder="Contoh: Cirebon" class="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                        </div>
+
+                        <!-- Filter Tanggal -->
+                        <div>
+                            <label for="tanggal" class="block text-sm font-medium mb-1">Rentang Tanggal</label>
+                            <input type="date" id="tanggal" class="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50 text-secondary">
+                        </div>
+
+                        <!-- Filter Kategori -->
+                        <div>
+                            <h4 class="block text-sm font-medium mb-2">Kategori</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 accent-primary focus:ring-primary/50"> <span class="ml-2">Seminar & Workshop</span></label>
+                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 accent-primary focus:ring-primary/50" checked> <span class="ml-2 font-semibold text-primary">Bazar & Kuliner</span></label>
+                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 accent-primary focus:ring-primary/50"> <span class="ml-2">Olahraga & Kompetisi</span></label>
+                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 accent-primary focus:ring-primary/50"> <span class="ml-2">Seni & Hiburan</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Filter Harga -->
+                        <div>
+                            <h4 class="block text-sm font-medium mb-2">Harga</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="radio" name="harga" class="h-4 w-4 border-gray-300 accent-primary focus:ring-primary/50"> <span class="ml-2">Semua</span></label>
+                                <label class="flex items-center"><input type="radio" name="harga" class="h-4 w-4 border-gray-300 accent-primary focus:ring-primary/50"> <span class="ml-2">Gratis</span></label>
+                                <label class="flex items-center"><input type="radio" name="harga" class="h-4 w-4 border-gray-300 accent-primary focus:ring-primary/5AF0"> <span class="ml-2">Bayar</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TOMBOL CARI (BARU DITAMBAHKAN) ===== -->
+                     <a href="#hasilpencarian">
+                    <button class="w-full bg-primary text-white py-3 px-6 rounded-full font-semibold hover:bg-primary-dark transition duration-300 shadow-lg shadow-primary/30 mt-8">
+                        Cari
+                    </button>
+                    </a>
+                    <!-- ========================================== -->
+
+                </div>
+            </aside>
+
+            <!-- ===== KOLOM HASIL (KANAN) ===== -->
+            <section class="w-full md:w-3/4">
+                <div id="hasilpencarian" class="mb-6">
+                    <h2 class="text-3xl font-bold">Hasil Pencarian "Bazar & Kuliner"</h2>
+                    <p class="text-secondary">Ditemukan 15 acara yang sesuai</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Kartu Acara 1 -->
+                    <!-- Awal Kartu Acara -->
+<div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col md:flex-row items-center gap-6">
+    
+    <!-- BAGIAN 1: GAMBAR (DIBUAT BISA DIKLIK) -->
+    <!-- Saya membungkus <img> dengan tag <a> -->
+    <a href="halamandetailacara.html" class="w-full md:w-1/3 flex-shrink-0">
+        <img src="https://media.istockphoto.com/id/1415170044/id/foto/festival-makanan-jalanan-luar-ruangan-kepala-memasak-sosis-daging-dan-kentang-yang-dimasak-di.jpg?s=612x612&w=0&k=20&c=Sgu1nkZ81WqfpucnrIrdX_sir-HbHVnmXtiEu_bTki4=" alt="Festival Kuliner" class="w-full h-48 md:h-auto object-cover rounded-lg" onerror="this.src='https://placehold.co/400x300/1ABC9C/FFFFFF?text=Gambar+Acara';">
+    </a>
+    
+    <div class="w-full">
+        
+        <!-- BAGIAN 2: JUDUL (DIBUAT BISA DIKLIK) -->
+        <!-- Saya membungkus <h3> dengan tag <a> -->
+        <a href="halamandetailacara.html" class="hover:underline">
+            <h3 class="text-xl font-bold text-primary mb-2">Festival Kuliner Nusantara 2025</h3>
+        </a>
+        
+        <div class="flex items-center text-secondary text-sm mb-1 space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Alun-Alun Kota Cirebon</span>
+        </div>
+        <div class="flex items-center text-secondary text-sm mb-4 space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Sabtu - Minggu, 12-13 Oktober | 10.00 - 21.00 WIB</span>
+        </div>
+        
+        <!-- BAGIAN 3: TOMBOL (SUDAH DIPERBAIKI LINKNYA) -->
+        <!-- Saya mengganti href="#" menjadi "halamandetailacara.html" -->
+        <a href="halamandetailacara.html" class="bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-dark transition duration-300 inline-block">
+            Lihat Detail Acara
+        </a>
+        
+    </div>
+</div>
+<!-- Akhir Kartu Acara -->
+
+                    <!-- Kartu Acara 2 -->
+<div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col md:flex-row items-center gap-6">
+    
+    <!-- BAGIAN 1: GAMBAR (DIBUAT BISA DIKLIK) -->
+    <!-- Saya membungkus <img> dengan tag <a> -->
+    <a href="halamandetailacara.html" class="w-full md:w-1/3 flex-shrink-0">
+        <img src="https://images.unsplash.com/photo-1680674814945-7945d913319c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Bazar Makanan Lokal" class="w-full h-48 md:h-auto object-cover rounded-lg" onerror="this.src='https://placehold.co/400x300/1ABC9C/FFFFFF?text=Gambar+Acara';">
+    </a>
+    
+    <div class="w-full">
+        
+        <!-- BAGIAN 2: JUDUL (DIBUAT BISA DIKLIK) -->
+        <!-- Saya membungkus <h3> dengan tag <a> -->
+        <a href="halamandetailacara.html" class="hover:underline">
+            <h3 class="text-xl font-bold text-primary mb-2">Bazar Jajanan Pasar Harjamukti</h3>
+        </a>
+        
+        <div class="flex items-center text-secondary text-sm mb-1 space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Lapangan Parkir Grage Mall</span>
+        </div>
+        <div class="flex items-center text-secondary text-sm mb-4 space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Jumat, 11 Oktober | 15.00 - 20.00 WIB</span>
+        </div>
+        
+        <!-- BAGIAN 3: TOMBOL (SUDAH DIPERBAIKI LINKNYA) -->
+        <!-- Saya mengganti href="#" menjadi "halamandetailacara.html" -->
+        <a href="halamandetailacara.html" class="bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-dark transition duration-300 inline-block">
+            Lihat Detail Acara
+        </a>
+        
+    </div>
+</div>
+<!-- Akhir Kartu Acara 2 -->
+                    
+                    <!-- Paginasi -->
+                    <div class="flex justify-center pt-6">
+                        <nav class="flex items-center space-x-2">
+                            <a href="#" class="px-4 py-2 rounded-lg text-secondary hover:bg-gray-200 transition">&lt;</a>
+                            <a href="#" class="px-4 py-2 rounded-lg bg-primary text-white font-bold">1</a>
+                            <a href="#" class="px-4 py-2 rounded-lg text-secondary hover:bg-gray-200 transition">2</a>
+                            <a href="#" class="px-4 py-2 rounded-lg text-secondary hover:bg-gray-200 transition">3</a>
+                            <a href="#" class="px-4 py-2 rounded-lg text-secondary hover:bg-gray-200 transition">&gt;</a>
+                        </nav>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

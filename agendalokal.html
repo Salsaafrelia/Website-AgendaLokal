@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Lokal - Temukan Acara Komunitas di Kotamu</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Script untuk Ikon (Lucide Icons) -->
+    <script src="https://unpkg.com/lucide-react@0.292.0/dist/umd/lucide-react.min.js"></script>
+
+    <!-- Kustomisasi Tailwind -->
+    <style>
+        /* Mengaplikasikan font Poppins ke seluruh halaman */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F4F6F7; /* Latar Belakang Off-White */
+            color: #2C3E50; /* Teks Utama Dark Charcoal */
+        }
+
+        /* Menambahkan warna kustom ke Tailwind */
+        .bg-primary { background-color: #1ABC9C; }
+        .text-primary { color: #1ABC9C; }
+        .border-primary { border-color: #1ABC9C; }
+        .hover\:bg-primary-dark:hover { background-color: #16a085; }
+
+        .bg-accent { background-color: #F1C40F; }
+        .text-accent { color: #F1C40F; }
+        
+        .text-secondary { color: #7F8C8D; }
+
+        /* Efek smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===== HEADER / NAVIGASI ===== -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="font-bold text-xl text-dark-charcoal">Agenda Lokal</span>
+            </a>
+            <!-- Menu Navigasi (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-secondary hover:text-primary font-medium transition duration-300">Home</a>
+                <a href="#kategori" class="text-secondary hover:text-primary font-medium transition duration-300">Jelajahi</a>
+                <a href="#fitur" class="text-secondary hover:text-primary font-medium transition duration-300">Fitur</a>
+                <a href="#bagikan" class="text-secondary hover:text-primary font-medium transition duration-300">Untuk Penyelenggara</a>
+            </nav>
+            <!-- Tombol Aksi -->
+            <a href="#" class="hidden md:block bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-dark transition duration-300 shadow-lg shadow-primary/30">
+                Masuk / Daftar
+            </a>
+            <!-- Menu Hamburger (Mobile) -->
+            <button class="md:hidden">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO SECTION ===== -->
+<section id="home" class="py-28 md:py-40">
+  <div class="container mx-auto px-6 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+      Temukan Denyut Komunitas di Kotamu
+    </h1>
+    <p class="text-lg md:text-xl text-secondary max-w-3xl mx-auto mb-10">
+      Dari bazar UMKM hingga workshop seni, semua acara lokal terbaik ada di sini. Temukan, ikuti, dan bagikan momen berhargamu.
+    </p>
+    <!-- Search Bar -->
+  <div class="max-w-2xl mx-auto bg-white rounded-full p-2 flex items-center shadow-lg">
+  <input 
+    type="text" 
+    placeholder="Cari acara, lokasi, atau kategori..." 
+    class="w-full bg-transparent px-6 py-3 text-gray-700 focus:outline-none"
+  >
+  <a 
+    href="carikegiatan.html" 
+    class="bg-primary text-white py-3 px-8 rounded-full font-semibold hover:bg-primary-dark transition duration-300 text-center"
+  >
+    Cari
+  </a>
+</div>
+
+  </div>
+</section>
+
+<!-- ===== KATEGORI SECTION ===== -->
+<section id="kategori" class="py-28 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-12 text-gray-800">
+      Jelajahi Berdasarkan Kategori
+    </h2>
+
+    <div class="flex flex-wrap justify-center gap-5">
+      <a href="carikegiatan.html" class="bg-[#1ABC9C] text-white py-3 px-8 rounded-full font-semibold hover:bg-[#17a589] transition duration-300 text-base">Keluarga & Anak</a>
+      <a href="carikegiatan.html" class="bg-[#1ABC9C] text-white py-3 px-8 rounded-full font-semibold hover:bg-[#17a589] transition duration-300 text-base">Bazar & Kuliner</a>
+      <a href="carikegiatan.html" class="bg-[#1ABC9C] text-white py-3 px-8 rounded-full font-semibold hover:bg-[#17a589] transition duration-300 text-base">Seni & Hiburan</a>
+      <a href="carikegiatan.html" class="bg-[#1ABC9C] text-white py-3 px-8 rounded-full font-semibold hover:bg-[#17a589] transition duration-300 text-base">Seminar & Workshop</a>
+      <a href="carikegiatan.html" class="bg-[#1ABC9C] text-white py-3 px-8 rounded-full font-semibold hover:bg-[#17a589] transition duration-300 text-base">Komunitas & Sosial</a>
+      <a href="carikegiatan.html" class="bg-[#1ABC9C] text-white py-3 px-8 rounded-full font-semibold hover:bg-[#17a589] transition duration-300 text-base">Olahraga & Kompetisi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACARA UNGGULAN SECTION ===== -->
+<section id="acara" class="py-40 bg-[#F4F6F7]">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-10 text-center">Acara Seru yang Akan Datang</h2>
+    <div class="bg-white rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center text-primary shadow-2xl">
+      <div class="md:w-3/5 text-center md:text-left mb-8 md:mb-0">
+        <h3 class="text-4xl font-bold mb-4">Festival Kuliner Nusantara 2025</h3>
+        <div class="flex items-center justify-center md:justify-start text-lg mb-2">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+  <span>Alun-Alun Kota Cirebon</span>
+</div>
+
+<div class="flex items-center justify-center md:justify-start text-lg mb-6">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+  </svg>
+  <span>Sabtu - Minggu, 12-13 Oktober 2025 | 10.00 - 21.00 WIB</span>
+</div>
+        <a href="halamandetailacara.html" class="bg-primary text-white py-3 px-8 rounded-full font-bold text-lg hover:bg-primary-dark transition duration-300">
+          Lihat Detail Acara
+        </a>
+      </div>
+      <div class="md:w-2/5 h-64 md:h-auto">
+        <img src="https://media.istockphoto.com/id/1415170044/id/foto/festival-makanan-jalanan-luar-ruangan-kepala-memasak-sosis-daging-dan-kentang-yang-dimasak-di.jpg?s=612x612&w=0&k=20&c=Sgu1nkZ81WqfpucnrIrdX_sir-HbHVnmXtiEu_bTki4=" class="rounded-xl w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FITUR / CARA KERJA SECTION ===== -->
+<section id="fitur" class="py-28 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-12">Semudah Itu!</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Temukan -->
+      <div class="flex flex-col items-center">
+        <a href="#acara">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+          viewBox="0 0 24 24" fill="none" stroke="#1ABC9C"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          class="mb-6">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        </a>
+        <a href="#acara">
+            <h3 class="text-2xl font-bold mb-3">1. Temukan</h3>
+        </a>
+            <p class="text-secondary max-w-xs">
+                Cari acara yang sesuai minat dan lokasimu dengan filter canggih.
+        </p>
+      </div>
+
+      <!-- Simpan -->
+      <div class="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+          viewBox="0 0 24 24" fill="none" stroke="#1ABC9C"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          class="mb-6">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <h3 class="text-2xl font-bold mb-3">2. Simpan</h3>
+        <p class="text-secondary max-w-xs">
+          Simpan acara yang kamu suka dan dapatkan pengingat agar tidak ketinggalan.
+        </p>
+      </div>
+
+      <!-- Bagikan -->
+      <div id= "bagikan" class="flex flex-col items-center">
+        <a href="submitacara.html"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+            viewBox="0 0 24 24" fill="none" stroke="#1ABC9C"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            class="mb-6">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+            <polyline points="16 6 12 2 8 6"/>
+            <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+        </a>
+        <a href="submitacara.html">
+            <h3 class="text-2xl font-bold mb-3">3. Bagikan</h3>
+        </a>
+            <p class="text-secondary max-w-xs">
+          Punya acara sendiri? Publikasikan dan jangkau ribuan warga di sekitarmu.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-primary text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Kolom 1: Logo & Deskripsi -->
+                <div>
+                    <h3 class="font-bold text-2xl mb-4">Agenda Lokal</h3>
+                    <p class="text-gray-200">
+                        Platform terpusat untuk menemukan dan membagikan acara terbaik di komunitasmu.
+                    </p>
+                </div>
+                <!-- Kolom 2: Navigasi Cepat -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Navigasi</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:underline">Kontak</a></li>
+                        <li><a href="#" class="hover:underline">Bantuan</a></li>
+                        <li><a href="#" class="hover:underline">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                 <!-- Kolom 3: Kategori -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Kategori</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Workshop</a></li>
+                        <li><a href="#" class="hover:underline">Kuliner</a></li>
+                        <li><a href="#" class="hover:underline">Olahraga</a></li>
+                        <li><a href="#" class="hover:underline">Seni</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 4: Sosial Media -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-white/20 p-2 rounded-full hover:bg-white/30 transition duration-300">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="bg-white/20 p-2 rounded-full hover:bg-white/30 transition duration-300">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="bg-white/20 p-2 rounded-full hover:bg-white/30 transition duration-300">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-6 text-center text-sm text-gray-200">
+                &copy; 2025 Agenda Lokal. Dibuat dengan ❤ di Cirebon.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

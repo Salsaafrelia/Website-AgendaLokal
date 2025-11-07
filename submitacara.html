@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publikasikan Acara - Agenda Lokal</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Kustomisasi Tailwind -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F4F6F7; /* Latar Belakang Off-White */
+            color: #2C3E50; /* Teks Utama Dark Charcoal */
+        }
+        .bg-primary { background-color: #1ABC9C; }
+        .text-primary { color: #1ABC9C; }
+        .border-primary { border-color: #1ABC9C; }
+        .accent-primary { accent-color: #1ABC9C; }
+        .hover\:bg-primary-dark:hover { background-color: #16a085; }
+        .text-secondary { color: #7F8C8D; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===== HEADER / NAVIGASI ===== -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="agendalokal.html#home" class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <span class="font-bold text-xl">Agenda Lokal</span>
+            </a>
+            <!-- Menu Navigasi (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="agendalokal.html#home" class="text-secondary hover:text-primary font-medium transition duration-300">Home</a>
+                <a href="agendalokal.html#kategori" class="text-secondary hover:text-primary font-medium transition duration-300">Jelajahi</a>
+                <a href="agendalokal.html#fitur" class="text-secondary hover:text-primary font-medium transition duration-300">Fitur</a>
+                <a href="agendalokal.html#bagikan" class="text-secondary hover:text-primary font-medium transition duration-300">Untuk Penyelenggara</a>
+            </nav>
+            <!-- Tombol Aksi -->
+            <a href="#" class="hidden md:block bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-dark transition duration-300 shadow-lg shadow-primary/30">
+                Masuk / Daftar
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <div class="max-w-4xl mx-auto">
+            <!-- Judul Halaman -->
+            <div class="text-center mb-10">
+                <a href="agendalokal.html" class="text-secondary hover:text-primary inline-flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    Kembali
+                </a>
+                <h1 class="text-4xl font-bold">Publikasikan Acaramu</h1>
+                <p class="text-secondary mt-2">Bagikan acaramu dan jangkau ribuan warga di komunitasmu.</p>
+            </div>
+
+            <!-- Kartu Formulir -->
+            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-sm">
+                <!-- Indikator Progres -->
+                <div class="mb-8">
+                    <p class="text-sm font-medium text-secondary mb-2">Langkah 1 dari 3: Detail Utama</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-primary h-2 rounded-full" style="width: 33%;"></div>
+                    </div>
+                </div>
+
+                <form class="space-y-6">
+                    <!-- Nama Acara -->
+                    <div>
+                        <label for="nama-acara" class="block text-sm font-medium mb-1">Nama Acara</label>
+                        <input type="text" id="nama-acara" placeholder="Contoh: Festival Kuliner Nusantara 2025" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition">
+                    </div>
+
+                    <!-- Kategori -->
+                    <div>
+                        <label for="kategori" class="block text-sm font-medium mb-1">Pilih Kategori</label>
+                        <select id="kategori" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition bg-white">
+                            <option>Pilih salah satu kategori</option>
+                            <option>Bazar & Kuliner</option>
+                            <option>Seminar & Workshop</option>
+                            <option>Olahraga & Kompetisi</option>
+                            <option>Seni & Hiburan</option>
+                            <option>Komunitas & Sosial</option>
+                            <option>Keluarga & Anak</option>
+                        </select>
+                    </div>
+
+                    <!-- Deskripsi Acara -->
+                    <div>
+                        <label for="deskripsi" class="block text-sm font-medium mb-1">Deskripsi Acara</label>
+                        <textarea id="deskripsi" rows="5" placeholder="Jelaskan tentang acaramu, siapa targetnya, dan apa saja yang akan ada di sana..." class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition"></textarea>
+                    </div>
+
+                    <!-- Upload Poster -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Upload Foto / Poster</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-primary-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary">
+                                        <span>Unggah file</span>
+                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    </label>
+                                    <p class="pl-1">atau seret dan lepas</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF hingga 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tombol Aksi -->
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-primary text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-primary-dark transition duration-300 shadow-lg shadow-primary/30">
+                            Lanjutkan ke Waktu & Lokasi
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-8 text-center text-sm text-gray-400">
+            &copy; 2025 Agenda Lokal. Seluruh hak cipta dilindungi.
+        </div>
+    </footer>
+
+</body>
+</html>
